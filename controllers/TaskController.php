@@ -12,6 +12,6 @@ use yii\web\Controller;
 class TaskController extends Controller
 {
 	public function actionAddTask (){
-		return $this->render('addTask')
+		return $this->render('addTask');
 	}
 }
