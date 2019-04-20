@@ -7,10 +7,14 @@
  */
 
 namespace app\controllers;
+use app\models\TaskForm;
 use yii\web\Controller;
 
 class TaskController extends Controller
 {
+	public function actionTaskForm(){
+		$model = new TaskForm();
+	}
 	public function actionAddTask (){
 		return $this->render('addTask');
 	}
