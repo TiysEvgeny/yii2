@@ -9,11 +9,22 @@
 namespace app\models;
 use yii\base\Model;
 
-class Task extends Model
+class TaskForm extends Model
 {
 	public $title;
 	public $description;
 	public $author;
 	public $responsible;
 	public $status;
+
+	public function rules(){
+		return [
+			// required fields
+			[['title', 'author', 'responsible', 'status'], 'required'],
+			// should contain words implies finished actions
+			[['title','description'], 'resultOriented'],
+			// should contain one of the following conditions: backlog, to do, in progress, finished
+			['status', 'checkCondition', 'possibleConditions' =>['backlog','to do','in progress','finished']],
+		];
+	}
 }
