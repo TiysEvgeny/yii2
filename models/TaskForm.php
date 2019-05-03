@@ -7,6 +7,7 @@
  */
 
 namespace app\models;
+use app\validators\ResultOrientedValidator;
 use yii\base\Model;
 
 class TaskForm extends Model
@@ -22,7 +23,7 @@ class TaskForm extends Model
 			// required fields
 			[['title', 'author', 'responsible', 'status'], 'required'],
 			// should contain words implies finished actions
-			[['title','description'], 'resultOriented'],
+			[['title','description'], resultOrientedValidator::class],
 			// should contain one of the following conditions: backlog, to do, in progress, finished
 			['status', 'checkCondition', 'possibleConditions' =>['backlog','to do','in progress','finished']],
 		];

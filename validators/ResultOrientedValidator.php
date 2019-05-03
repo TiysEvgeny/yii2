@@ -1,5 +1,6 @@
 <?php
 
+namespace app\validators;
 use yii\validators\Validator;
 
 /**
